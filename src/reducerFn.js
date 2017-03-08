@@ -14,32 +14,29 @@ export default function reducerFn(initialState, actions={}, reducer) {
   return (state=initialState, action)=> {
     switch (action.type) {
       case actionFetch:
-        return {
-          ...state,
+        return state.merge({
           loading: true,
           error: null,
           syncing: !!action.syncing
-        };
+        });
       case actionSuccess:
-        return {
-          ...state,
+        return state.merge({
           loading: false,
           sync: true,
           syncing: false,
           error: null,
           data: action.data
-        };
+        });
       case actionFail:
-        return {
-          ...state,
+        return state.merge({
           loading: false,
           error: action.error,
           syncing: false
-        };
+        });
       case actionReset:
         const { mutation } = action;
         return (mutation === "sync") ?
-          { ...state, sync: false } :
+          state.merge({ sync: false }) :
           { ...initialState };
       default:
         return reducer ? reducer(state, action) : state;

@@ -2,6 +2,8 @@
 
 /* eslint no-void: 0 */
 
+import { fromJS } from "immutable";
+
 import reducerFn from "./reducerFn";
 import actionFn from "./actionFn";
 import transformers from "./transformers";
@@ -132,12 +134,12 @@ export default function reduxApi(config, baseConfig) {
     memo.actions[key] = actionFn(url, key, options, ACTIONS, meta);
 
     if (!meta.virtual && !memo.reducers[reducerName]) {
-      const initialState = {
+      const initialState = fromJS({
         sync: false,
         syncing: false,
         loading: false,
         data: transformer()
-      };
+      });
       const reducer = opts.reducer ? opts.reducer.bind(memo) : null;
       memo.reducers[reducerName] = reducerFn(initialState, ACTIONS, reducer);
     }

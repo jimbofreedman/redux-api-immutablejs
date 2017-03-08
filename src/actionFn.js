@@ -36,7 +36,10 @@ function helperCrudFunction(name) {
 }
 
 function defaultMiddlewareArgsParser(dispatch, getState) {
-  return { dispatch, getState };
+  return {
+    dispatch,
+    getState: ()=> getState().toJS()
+  };
 }
 
 export const CRUD = ["get", "post", "put", "delete", "patch"].reduce(
