@@ -1,4 +1,8 @@
-### Redux-api
+### redux-api-immutablejs
+
+NOTE: This is a fork of [redux-api](https://github.com/lexich/redux-api) using
+[immutable-js](https://facebook.github.io/immutable-js/) data structures.
+
 Flux REST API for redux infrastructure
 
 [![Build Status](https://travis-ci.org/lexich/redux-api.svg)](https://travis-ci.org/lexich/redux-api)
