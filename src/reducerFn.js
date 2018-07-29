@@ -20,7 +20,7 @@ export default function reducerFn(initialState, actions={}, reducer) {
           syncing: !!action.syncing
         });
       case actionSuccess:
-        return state.merge({
+        return state.mergeDeep({
           loading: false,
           sync: true,
           syncing: false,
