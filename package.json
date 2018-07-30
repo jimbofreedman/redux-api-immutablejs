@@ -7,6 +7,10 @@
     "url": "https://github.com/lexich"
   },
   "main": "./dist/redux-api.js",
+  "files": [
+    "./lib/index.js",
+    "./lib/adapterFetch.js",
+  ],
   "license": "MIT",
   "description": "Flux REST API for redux infrastructure",
   "repository": "http://github.com/lexich/redux-api",
